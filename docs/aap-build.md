@@ -3,7 +3,7 @@
 
 ### Prerequisites
 * podman/docker 
-* 
+* [ansible-builder](https://ansible-builder.readthedocs.io/en/stable/)  ```pip install ansible-builder```
 
 **Clone the repo and cd into the directory**
 ```
