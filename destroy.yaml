@@ -1,7 +1,6 @@
 ---
 - name: Destroy an Assisted Installer provisioned OpenShift Cluster
-  hosts: localhost
-  connection: local
+  hosts: jumpbox
   gather_facts: false
 
   vars:
