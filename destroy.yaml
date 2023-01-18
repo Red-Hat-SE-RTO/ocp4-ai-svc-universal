@@ -1,6 +1,7 @@
 ---
 - name: Destroy an Assisted Installer provisioned OpenShift Cluster
-  hosts: 192.168.17.23
+  hosts: localhost
+  connection: local
   gather_facts: false
 
   vars:
