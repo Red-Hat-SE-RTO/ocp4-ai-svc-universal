@@ -1,4 +1,4 @@
-openshift == 0.12.1
-kubernetes
-pyvmomi
-jmespath
+openshift == 0.13.1
+kubernetes == 25.3.0
+pyvmomi == 8.0.0.1.2
+jmespath == 1.0.1
