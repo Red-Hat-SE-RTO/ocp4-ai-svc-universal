@@ -279,12 +279,15 @@
             remote_src: true
             src: "{{ generated_asset_directory }}/deployment-{{ deployment_name }}.json"
             dest: "{{ generated_asset_directory }}/{{ cluster_id }}/deployment.json"
+          tags:
+            - create_cluster_dir
 
         - name: Remove old named deployment.json
           ansible.builtin.file:
             path: "{{ generated_asset_directory }}/deployment-{{ deployment_name }}.json"
             state: absent
-
+          tags:
+            - create_cluster_dir
 
     - name: SSH Key Migration & Reread
       ansible.builtin.include_tasks:
