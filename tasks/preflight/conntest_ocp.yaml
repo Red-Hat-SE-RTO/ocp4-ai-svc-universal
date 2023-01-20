@@ -1,0 +1,40 @@
+---
+- name: Test Connection to OpenShift Cluster
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  module_defaults:
+    kubernetes.core.k8s:
+      validate_certs: false
+    kubernetes.core.k8s_info:
+      validate_certs: false
+
+  vars:
+    cluster_id: ""
+    infraenv_id: ""
+    cluster_status: ""
+    deployment_name: ""
+    compiled_uri_headers:
+      User-Agent: AnsibleAutomation/4.2
+    generated_asset_directory: "./.generated"
+    detected_infra_nodes: false
+    install_config_overrides: {}
+
+  tasks:
+    - name: Read in variables
+      ansible.builtin.include_vars:
+        dir: vars
+        extensions:
+          - 'yaml'
+          - 'yml'
+      tags:
+        - always
+
+    - name: Ensure default namespace exists
+      kubernetes.core.k8s:
+        state: present
+        kind: Namespace
+        api_version: v1
+        name: default
+
