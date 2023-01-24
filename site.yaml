@@ -11,6 +11,7 @@
       file: "tasks/preflight/conntest_ocp.yaml"
   
   roles:
+    - ocp4-role-bindings
 
   tasks:
 
