@@ -12,6 +12,7 @@
   
   roles:
     - ocp4-role-bindings
+    - ocp4-ntp-configuration
 
   tasks:
 
