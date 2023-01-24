@@ -1,2 +1,2 @@
 ---
-disable_project_creation: 'false'
+disable_project_selfprovisioning: 'false'

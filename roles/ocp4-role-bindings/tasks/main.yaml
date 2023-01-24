@@ -15,4 +15,4 @@
         apiGroup: rbac.authorization.k8s.io
         kind: ClusterRole
         name: self-provisioner
-  when: disable_project_creation == 'true'
+  when: disable_project_selfprovisioning == 'true'
