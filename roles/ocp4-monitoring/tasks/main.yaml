@@ -1,0 +1,9 @@
+---
+# https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#configuring-the-monitoring-stack_configuring-the-monitoring-stack
+- name: Configure the monitoring stack
+  k8s:
+    state: present
+    merge_type:
+    - strategic-merge
+    - merge
+    definition: "{{ lookup('template, 'cluster-monitoring-config.yaml.j2' ) | from_yaml }}"
