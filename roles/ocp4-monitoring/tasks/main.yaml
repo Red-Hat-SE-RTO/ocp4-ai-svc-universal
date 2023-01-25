@@ -6,4 +6,4 @@
     merge_type:
     - strategic-merge
     - merge
-    definition: "{{ lookup('template, 'cluster-monitoring-config.yaml.j2' ) | from_yaml }}"
+    definition: "{{ lookup('template', 'cluster-monitoring-config.yaml.j2' ) | from_yaml }}"
