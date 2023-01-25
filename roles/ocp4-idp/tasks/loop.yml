@@ -7,7 +7,16 @@
 ## Google OAuth Identity Provider
 ## ===================================================================================================
 
-  - name: Set up Google OAuth IdP
+- name: Slurp the client secret
+  ansible.builtin.slurp:
+    src: "{{ clientSecretFile }}"
+  register: clientSecretSlurp
+
+- name: Set the client secret
+  ansible.bultin.set_fact:
+    provider.clientSecret: "{{ clientSecretSlurp['content'] | b64decode }}"
+
+- name: Set up Google OAuth IdP
     when: provider.type == 'Google'
     block:
 
