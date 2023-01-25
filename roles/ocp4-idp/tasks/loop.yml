@@ -9,7 +9,7 @@
 
   - name: Slurp the client secret
     ansible.builtin.slurp:
-      src: "{{ clientSecretFile }}"
+      src: "{{ provider.clientSecretFile }}"
     register: clientSecretSlurp
   
   - name: Set the client secret
