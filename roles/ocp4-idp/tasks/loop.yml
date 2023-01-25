@@ -13,7 +13,7 @@
     register: clientSecretSlurp
   
   - name: Set the client secret
-    ansible.bultin.set_fact:
+    ansible.builtin.set_fact:
       provider.clientSecret: "{{ clientSecretSlurp['content'] | b64decode }}"
   
   - name: Set up Google OAuth IdP
