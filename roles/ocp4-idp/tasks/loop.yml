@@ -14,7 +14,7 @@
   
   - name: Set the client secret
     ansible.builtin.set_fact:
-      provider['clientSecret']: "{{ clientSecretSlurp['content'] | b64decode }}"
+      clientSecret: "{{ clientSecretSlurp['content'] | b64decode }}"
   
   - name: Set up Google OAuth IdP
     when: provider.type == 'Google'
@@ -34,7 +34,7 @@
               namespace: openshift-config
             type: Opaque
             stringData:
-              clientSecret: "{{ provider.clientSecret }}"
+              clientSecret: "{{ clientSecret }}"
 
       ## =============================================================================================
       ## Google OAuth Identity Provider
