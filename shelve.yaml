@@ -1,0 +1,24 @@
+---
+# https://docs.openshift.com/container-platform/4.12/backup_and_restore/graceful-cluster-shutdown.html
+- name: Shelve a provisioned OpenShift Cluster
+  hosts: all
+  gather_facts: false
+
+  environment:
+    KUBECONFIG: "{{ KUBECONFIG }}"
+
+  tasks:
+  - name: Gather the list of nodes
+    kubernetes.core.k8s_info:
+      api_version: v1
+      kind: Node
+    register: node_list
+
+  - name: Issue shutdown commands for each node in node list
+    ansible.builtin.shell:
+      cmd: "oc debug node/{{ item.metadata.name }} -- chroot /host shutdown -h 1"
+    with_items: "{{ node_list.resources }}"
+
+      
+  
+  
